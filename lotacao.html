@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxa de Lotação</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lotacao.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand">
+                <img src="bovino.webp" width="80" height="80" class="d-inline-block align-top" alt="">
+                TAXA DE LOTAÇÃO
+            </a>
+        </nav>
+    </header>
+    
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Calculadora de Taxa de Lotação</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="taxa" name="taxa">
+                            <div class="form-group">
+                                <label for="peso">Média de peso dos animais (Kg):</label>
+                                <input type="number" class="form-control" id="peso" name="peso" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="porcentagem">Porcentagem (%) de peso vivo para consumo de MS/dia:</label>
+                                <input type="number" class="form-control" id="porcentagem" name="porcentagem" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="animais">Número de animais na área:</label>
+                                <input type="number" class="form-control" id="animais" name="animais" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quantidade">Média das amostras do volumoso coletado (Kg de matéria verde/m²):</label>
+                                <input type="number" class="form-control" id="quantidade" name="quantidade" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="area">Tamanho da área de pastejo (ha):</label>
+                                <input type="number" class="form-control" id="area" name="area" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="dias">Número de dias de pastejo:</label>
+                                <input type="number" class="form-control" id="dias" name="dias" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="valor">Insira o valor recomendado de UA/ha para o tipo de vegetação:</label>
+                                <input type="number" class="form-control" id="valor" name="valor" required>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button class="btn btn-success" type="button" onclick="calculartaxa()">Calcular</button>
+                                <button class="btn btn-danger ml-2" type="button" onclick="gerarPDF()">Baixar PDF</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="lotacao.js" defer></script>
+</body>
+</html>
+
